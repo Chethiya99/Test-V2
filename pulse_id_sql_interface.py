@@ -334,8 +334,8 @@ if st.session_state.interaction_history:
                         receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
 
                         # Sender email and password (replace with your credentials)
-                        sender_email = "your_email@gmail.com"
-                        sender_password = "your_password"
+                        sender_email = "satoshinakumuto@gmail.com"
+                        sender_password = "Satoshi@123$44"
 
                         # Send the email
                         if send_email(sender_email, sender_password, receiver_email, "Subject: Pulse iD Partnership", interaction['content']):
