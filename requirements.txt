@@ -1,5 +1,3 @@
-email
-datetime
 pysqlite3-binary
 aiohappyeyeballs==2.4.4
 aiohttp==3.11.10
