@@ -63,12 +63,12 @@ def read_email_task_description(file_path):
 # Function to send email
 def send_email(sender_email, sender_password, receiver_email, subject, body):
     try:
-        # Create a MIMEText object
+        # Create a MIMEText object with HTML content
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = receiver_email
         msg['Subject'] = subject
-        msg.attach(MIMEText(body, 'html'))
+        msg.attach(MIMEText(body, 'html'))  # Set the email content type to HTML
 
         # Connect to the SMTP server
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
@@ -295,19 +295,14 @@ if st.session_state.interaction_history:
                             if email_results.raw:
                                 email_body = email_results.raw  # Get the raw email content
                                 
-                                # Function to extract image URL from email body
-                                def extract_image_url(email_body):
-                                    url_pattern = r'https?://[^\s]+'
-                                    urls = re.findall(url_pattern, email_body)
-                                    return urls[0] if urls else None
-
-                                # Extract image URL from the email body
-                                image_url = extract_image_url(email_body)
-
-                                # Insert image into the email body at a specific position (after "Dear Merchant Name")
-                                if image_url:
-                                    modified_email_body = email_body.replace("Dear", f"Dear ")
-                                    email_body = modified_email_body
+                                # Ensure the email body is properly formatted as HTML
+                                email_body = f"""
+                                <html>
+                                    <body>
+                                        {email_body.replace("\n", "<br>")}  # Replace newlines with <br> tags
+                                    </body>
+                                </html>
+                                """
                                 
                                 # Append the generated email to the interaction history
                                 st.session_state.interaction_history.append({
