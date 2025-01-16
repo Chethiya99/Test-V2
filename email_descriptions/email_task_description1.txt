@@ -8,7 +8,7 @@ Subject: Boost Customer Traffic for 'merchant_name' – No Upfront Cost
 
 **Randomly select one of the following opening lines and use it to start the email:**
 
-1. Dear 'merchant_name',  
+1. Dear 'merchant_name',  'merchant_email',
     
    We’re thrilled to connect with **'merchant_name'** and share how we can help you **drive more customers, increase sales, and grow your business** through our **Pulse iD Marketplace**.  
 
