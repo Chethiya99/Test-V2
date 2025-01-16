@@ -327,7 +327,7 @@ if st.session_state.interaction_history:
                         # Extract merchant ID and email from the interaction
                         merchant_id = interaction['content'].split("Dear ")[1].split(",")[0]  # Extract merchant name
                         #receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
-                        receiver_email = 'hansa@pulseid.com'
+                        receiver_email = 'jayan@pulseid.com'
 
                         # Sender email and password (replace with your credentials)
                         sender_email = "satoshinakumuto@gmail.com"
