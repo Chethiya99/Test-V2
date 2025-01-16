@@ -270,7 +270,7 @@ if st.session_state.interaction_history:
                             email_agent = Agent(
                                 role="Email Content Generator",
                                 goal="Generate personalized marketing emails for merchants.",
-                                backstory="You are a marketing expert named 'Sumit Uttamchandani' of Pulse iD fintech company skilled in crafting professional and engaging emails for merchants.",
+                                backstory="You are a marketing expert named 'Jayan Nimna' of Pulse iD fintech company skilled in crafting professional and engaging emails for merchants.",
                                 verbose=True,
                                 allow_delegation=False,
                                 llm=llm_email 
