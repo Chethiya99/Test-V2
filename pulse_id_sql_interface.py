@@ -293,22 +293,27 @@ if st.session_state.interaction_history:
                             
                             # Display results 
                             if email_results.raw:
-                                email_body = email_results.raw  # Get the raw email content
+                                # Split the email results into individual emails (assuming emails are separated by a delimiter like "---")
+                                individual_emails = email_results.raw.split("---")
                                 
-                                # Ensure the email body is properly formatted as HTML
-                                email_body = f"""
-                                <html>
-                                    <body>
-                                        {email_body.replace("\n", "<br>")}  # Replace newlines with <br> tags
-                                    </body>
-                                </html>
-                                """
-                                
-                                # Append the generated email to the interaction history
-                                st.session_state.interaction_history.append({
-                                    "type": "email",
-                                    "content": email_body
-                                })
+                                # Store each email separately in the interaction history
+                                for i, email_body in enumerate(individual_emails):
+                                    if email_body.strip():  # Skip empty emails
+                                        # Ensure the email body is properly formatted as HTML
+                                        formatted_email_body = f"""
+                                        <html>
+                                            <body>
+                                                {email_body.replace("\n", "<br>")}  # Replace newlines with <br> tags
+                                            </body>
+                                        </html>
+                                        """
+                                        
+                                        # Append the generated email to the interaction history
+                                        st.session_state.interaction_history.append({
+                                            "type": "email",
+                                            "content": formatted_email_body,
+                                            "index": len(st.session_state.interaction_history)  # Unique index for each email
+                                        })
                                 
                                 # Trigger a re-run to update the UI
                                 st.session_state.trigger_rerun = True
@@ -320,14 +325,13 @@ if st.session_state.interaction_history:
             st.markdown("#### Generated Email:")
             st.markdown(interaction['content'], unsafe_allow_html=True)
             
-            # Add a button to send the email
-            if st.button(f"Send Email", key=f"send_email_{idx}"):
+            # Add a "Send" button for each email
+            if st.button(f"Send Email {interaction['index'] + 1}", key=f"send_email_{interaction['index']}"):
                 with st.spinner("Sending email..."):
                     try:
                         # Extract merchant ID and email from the interaction
                         merchant_id = interaction['content'].split("Dear ")[1].split(",")[0]  # Extract merchant name
-                        #receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
-                        receiver_email = 'jayan@pulseid.com'
+                        receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
 
                         # Sender email and password (replace with your credentials)
                         sender_email = "satoshinakumuto@gmail.com"
