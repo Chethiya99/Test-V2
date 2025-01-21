@@ -334,7 +334,7 @@ if st.session_state.interaction_history:
 
                         # Sender email and password (replace with your credentials)
                         sender_email = "satoshinakumuto@gmail.com"
-                        sender_password = "giha zfat jiqz hpbo"
+                        sender_password = "giha zfat jiqz"
 
                         # Send the email
                         if send_email(sender_email, sender_password, receiver_email, "Subject: Pulse iD Partnership", interaction['content']):
