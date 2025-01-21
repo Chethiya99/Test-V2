@@ -303,7 +303,7 @@ if st.session_state.interaction_history:
                                         formatted_email_body = f"""
                                         <html>
                                             <body>
-                                                {email_body.replace("\n", "<br>")}  # Replace newlines with <br> tags
+                                                {email_body.replace("\n", "<br>")} 
                                             </body>
                                         </html>
                                         """
