@@ -268,8 +268,7 @@ if st.session_state.interaction_history:
                             # Define email generation agent 
                             llm_email = LLM(model="groq/llama-3.1-70b-versatile", api_key=st.session_state.api_key)
                             email_agent = Agent(
-                                role="Assume yourself as a lead Marketing Lead, with years of experiences working for leading merchant sourcing and acquiring companies such as wirecard, cardlytics, fave that has helped to connect with small to medium merchants to source an offer. 
-                                        Generate a personalized email for merchants with a compelling and curiosity-piquing subject line that feels authentic and human-crafted, ensuring the recipient does not perceive it as spam or automated",
+                                role="Assume yourself as a lead Marketing Lead, with years of experiences working for leading merchant sourcing and acquiring companies such as wirecard, cardlytics, fave that has helped to connect with small to medium merchants to source an offer. Generate a personalized email for merchants with a compelling and curiosity-piquing subject line that feels authentic and human-crafted, ensuring the recipient does not perceive it as spam or automated",
                                 goal="Generate personalized marketing emails for merchants.",
                                 backstory="You are a marketing expert named 'Jayan Nimna' of Pulse iD fintech company skilled in crafting professional and engaging emails for merchants.",
                                 verbose=True,
