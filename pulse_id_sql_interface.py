@@ -197,8 +197,7 @@ def render_query_section():
                 try:
                     # Define company details and agent role
                     company_details = """
-                    You are a dedicated agent specializing in sourcing merchants from various regions for PulseiD. your current focus includes a strong network of merchants in the restaurant industry.
-                    Additionally, you have the expertise to craft effective and professional emails tailored to your needs. If possible, Please always try to give answers in a table format or point wise.
+                     If possible, Please always try to give answers in a table format or point wise.
                     """
 
                     # Prepend company details to the user's query
@@ -221,7 +220,7 @@ def render_query_section():
                     extract_task = Task(
                         description=f"Extract a list of 'merchants' and their 'emails' from the following text:\n\n{st.session_state.raw_output}",
                         agent=extractor_agent,
-                        expected_output="Please return A structured list of merchant names, their associated email addresses (except 'Pulse id') extracted from the given text. If any merchant name or email are unavailable, return 'errorhappened'.if available, extract them"
+                        expected_output="Please return A structured list of merchant names, their associated email addresses, etc extracted from the given text"
                     )
                     
                     # Crew execution for extraction 
