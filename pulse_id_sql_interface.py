@@ -340,11 +340,12 @@ if st.session_state.interaction_history:
                     try:
                         # Extract merchant ID and email from the interaction
                         merchant_id = interaction['content'].split("Dear ")[1].split(",")[0]  # Extract merchant name
-                        receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
+                        #receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
+                        receiver_email = 'jayan@pulseid.com'
 
                         # Sender email and password (replace with your credentials)
                         sender_email = "satoshinakumuto@gmail.com"
-                        sender_password = "giha zfat jiqz"
+                        sender_password = "giha zfat jiqz hpbo"
 
                         # Send the email with the extracted subject line
                         if send_email(sender_email, sender_password, receiver_email, subject_line, interaction['content']):
