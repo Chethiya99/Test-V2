@@ -103,18 +103,14 @@ def store_sent_email(merchant_id, email, sent_time):
         st.error(f"Error storing email data: {str(e)}")
         return False
 
-# Function to extract the subject line and clean the email body
-def extract_subject_and_clean_body(email_body):
-    # Split the email body into lines
-    lines = email_body.split("<br>")
-    
-    # The first line is assumed to be the subject line
-    subject_line = lines[0].strip()
-    
-    # Remove the subject line from the email body
-    cleaned_body = "<br>".join(lines[1:]).strip()
-    
-    return subject_line, cleaned_body
+# Function to extract and clean the subject line
+def extract_and_clean_subject(email_body):
+    # Use regex to find the subject line (e.g., "Subject: ..." or "<html><body>Subject: ...")
+    subject_match = re.search(r"(?:<html>\s*<body>\s*)?Subject:\s*(.*?)(?:<br>|</body>\s*</html>|$)", email_body, re.IGNORECASE)
+    if subject_match:
+        subject_line = subject_match.group(1).strip()
+        return subject_line
+    return "Exciting Partnership Opportunity with Pulse iD"  # Default subject if not found
 
 # Header Section with Title and Logo
 st.image("logo.png", width=150)  # Ensure you have your logo in the working directory
@@ -336,16 +332,16 @@ if st.session_state.interaction_history:
         elif interaction["type"] == "email":
             st.markdown("#### Generated Email:")
             
-            # Extract the subject line and clean the email body
-            subject_line, cleaned_body = extract_subject_and_clean_body(interaction['content'])
-            
-            # Display the cleaned email body (without the subject line)
-            st.markdown(cleaned_body, unsafe_allow_html=True)
+            # Display the full email content (including the subject line)
+            st.markdown(interaction['content'], unsafe_allow_html=True)
             
             # Add a "Send" button for each email
             if st.button(f"Send Email {interaction['index'] + 1}", key=f"send_email_{interaction['index']}"):
                 with st.spinner("Sending email..."):
                     try:
+                        # Extract and clean the subject line
+                        subject_line = extract_and_clean_subject(interaction['content'])
+                        
                         # Extract merchant ID and email from the interaction
                         merchant_id = interaction['content'].split("Dear ")[1].split(",")[0]  # Extract merchant name
                         #receiver_email = re.findall(r'[\w\.-]+@[\w\.-]+', interaction['content'])[0]  # Extract email
@@ -355,8 +351,8 @@ if st.session_state.interaction_history:
                         sender_email = "satoshinakumuto@gmail.com"
                         sender_password = "giha zfat jiqz hpbo"
 
-                        # Send the email with the extracted subject line and cleaned body
-                        if send_email(sender_email, sender_password, receiver_email, subject_line, cleaned_body):
+                        # Send the email with the cleaned subject line and full email body
+                        if send_email(sender_email, sender_password, receiver_email, subject_line, interaction['content']):
                             # Store the sent email data in the database
                             sent_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                             if store_sent_email(merchant_id, receiver_email, sent_time):
