@@ -105,10 +105,18 @@ def store_sent_email(merchant_id, email, sent_time):
 
 # Function to extract the subject line from the email content
 def extract_subject(email_body):
+    # Try to extract the subject line if it starts with "Subject:"
     subject_match = re.search(r"Subject:\s*(.*)", email_body)
     if subject_match:
         return subject_match.group(1).strip()
-    return "Exciting Partnership Opportunity with Pulse iD"  # Default subject if not found
+    
+    # If no explicit "Subject:" label, look for the first line as the subject
+    first_line = email_body.split("<br>")[0].strip()  # Extract the first line
+    if first_line:  # If the first line is not empty
+        return first_line
+    
+    # Default subject if no subject is found
+    return "Exciting Partnership Opportunity with Pulse iD"
 
 # Header Section with Title and Logo
 st.image("logo.png", width=150)  # Ensure you have your logo in the working directory
