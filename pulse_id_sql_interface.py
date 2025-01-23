@@ -103,6 +103,13 @@ def store_sent_email(merchant_id, email, sent_time):
         st.error(f"Error storing email data: {str(e)}")
         return False
 
+# Function to extract the subject line from the email content
+def extract_subject(email_body):
+    subject_match = re.search(r"Subject:\s*(.*)", email_body)
+    if subject_match:
+        return subject_match.group(1).strip()
+    return "Exciting Partnership Opportunity with Pulse iD"  # Default subject if not found
+
 # Header Section with Title and Logo
 st.image("logo.png", width=150)  # Ensure you have your logo in the working directory
 st.markdown(
@@ -324,6 +331,9 @@ if st.session_state.interaction_history:
             st.markdown("#### Generated Email:")
             st.markdown(interaction['content'], unsafe_allow_html=True)
             
+            # Extract the subject line from the email content
+            subject_line = extract_subject(interaction['content'])
+            
             # Add a "Send" button for each email
             if st.button(f"Send Email {interaction['index'] + 1}", key=f"send_email_{interaction['index']}"):
                 with st.spinner("Sending email..."):
@@ -336,8 +346,8 @@ if st.session_state.interaction_history:
                         sender_email = "satoshinakumuto@gmail.com"
                         sender_password = "giha zfat jiqz"
 
-                        # Send the email
-                        if send_email(sender_email, sender_password, receiver_email, "Subject: Pulse iD Partnership", interaction['content']):
+                        # Send the email with the extracted subject line
+                        if send_email(sender_email, sender_password, receiver_email, subject_line, interaction['content']):
                             # Store the sent email data in the database
                             sent_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                             if store_sent_email(merchant_id, receiver_email, sent_time):
