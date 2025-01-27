@@ -148,7 +148,7 @@ if new_selected_db != st.session_state.selected_db:
     st.sidebar.success(f"✅ Switched to database: {st.session_state.selected_db}")
 
 # Model Selection
-model_name = st.sidebar.selectbox("Select Model:", ["llama-3.3-70b-versatile"]) #"llama3-70b-8192"
+model_name = st.sidebar.selectbox("Select Model:", ["whisper-large-v3"]) #"llama3-70b-8192"
 
 # Email Template Selection
 template_options = ["email_task_description1.txt", "email_task_description2.txt", "email_task_description3.txt"]
