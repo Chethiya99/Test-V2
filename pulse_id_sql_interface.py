@@ -219,7 +219,7 @@ def render_query_section():
                     st.session_state.raw_output = result['output'] if isinstance(result, dict) else result
                     
                     # Process raw output using an extraction agent 
-                    extractor_llm = LLM(model="groq/llama3-70b-8192", api_key=st.session_state.api_key)
+                    extractor_llm = LLM(model="groq/llama-3.3-70b-versatile", api_key=st.session_state.api_key)
                     extractor_agent = Agent(
                         role="Data Extractor",
                         goal="Extract merchants, emails, reviews and anything posible from the raw output if they are only available.",
