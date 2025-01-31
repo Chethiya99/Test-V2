@@ -186,7 +186,6 @@ def render_query_section():
     
     # Predefined questions
     predefined_questions = [
-        "Give first three merchant names and their emails, ratings, cuisine type and reviews"
     ]
     
     # Display buttons for predefined questions
@@ -197,7 +196,7 @@ def render_query_section():
             st.session_state.trigger_rerun = True  # Trigger a re-run to process the query
     
     # Text area for user input
-    user_query = st.text_area("Enter your query:", placeholder="E.g., Show top 10 merchants and their emails.", key=f"query_{len(st.session_state.interaction_history)}", value=st.session_state.get('user_query', ''))
+    user_query = st.text_area("Enter your query:", placeholder="E.g., Give first three merchant names and their emails, ratings, cuisine type and reviews.", key=f"query_{len(st.session_state.interaction_history)}", value=st.session_state.get('user_query', ''))
     
     if st.button("Run Query", key=f"run_query_{len(st.session_state.interaction_history)}"):
         if user_query:
