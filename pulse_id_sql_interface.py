@@ -189,7 +189,7 @@ def render_query_section():
     ]
     
     # Display buttons for predefined questions
-    st.markdown("**Predefined Questions:**")
+    #st.markdown("**Predefined Questions:**")
     for question in predefined_questions:
         if st.button(question, key=f"predefined_{question}"):
             st.session_state.user_query = question  # Store the question in session state
