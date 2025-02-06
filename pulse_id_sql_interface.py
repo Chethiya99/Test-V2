@@ -152,7 +152,7 @@ model_name = st.sidebar.selectbox("Select Model:", ["llama3-70b-8192"]) #"llama3
 
 # Email Template Selection
 template_options = ["email_task_description1.txt", "email_task_description2.txt", "email_task_description3.txt"]
-st.session_state.selected_template = st.sidebar.selectbox("Select Email Template:", template_options, index=template_options.index(st.session_state.selected_template))
+st.session_state.selected_template = st.sidebar.selectbox("Select Email Prompt:", template_options, index=template_options.index(st.session_state.selected_template))
 st.sidebar.success(f"✅ Selected Prompt: {st.session_state.selected_template}")
 
 # Initialize SQL Database and Agent
