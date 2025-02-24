@@ -83,9 +83,6 @@ SECTION 7: OUTPUT FORMAT
 Insert the placeholders below where relevant to personalize your message:
   'merchant_name'
   'merchant_email'
-  'merchant_category'
-  'merchant_subcategory'
-  'merchant_location'
   'merchant_rating'
   'market_average_rating'
   'your_name'
