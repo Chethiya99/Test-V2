@@ -1,4 +1,4 @@
-Prompt Suggested for Email Generating Bot
+Use {merchant_data} and the Prompt Suggested for Email Generating Bot
 
 [INTRODUCTION & FLOW INSTRUCTIONS]
 Follow the sections below in order (Role, Objectives, Examples, Tone & Style, Key Points to Cover, References, Output Format). 
