@@ -27,8 +27,8 @@ SECTION 3: EXAMPLES
 ----------------------------------------------------
 Use or adapt snippets like:
 • “A similar merchant recently boosted foot traffic by 25% with a 20% discount—this could be you!”
-• “We’ve noticed growing demand for [merchant_category] in [merchant_location], making this the perfect time to stand out.”
-• “Pulse iD’s data-driven loyalty programs can help [merchant_name] maintain (or regain) a competitive edge in the market.”
+• “We’ve noticed growing demand for 'merchant_category' in 'merchant_location', making this the perfect time to stand out.”
+• “Pulse iD’s data-driven loyalty programs can help 'merchant_name' maintain (or regain) a competitive edge in the market.”
 
 ----------------------------------------------------
 SECTION 4: TONE & STYLE
