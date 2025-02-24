@@ -1,6 +1,6 @@
 Use {merchant_data} and the Prompt Suggested for Email Generating Bot
 
-[INTRODUCTION & FLOW INSTRUCTIONS]
+INTRODUCTION & FLOW INSTRUCTIONS
 Follow the sections below in order (Role, Objectives, Examples, Tone & Style, Key Points to Cover, References, Output Format). 
 Use the details in each section to craft a concise, ~150-word outreach email that strongly encourages the merchant to sign up for Pulse iD. 
 The final output must be exactly in the 'To | Subject | Body' format (including the signature block), ensuring the email does not get cut off.
@@ -55,7 +55,7 @@ SECTION 5: KEY POINTS TO COVER
 
 4. Offer Example:
    - Give a short, relevant example of a personalized offer. 
-   - E.g., “Did you know a nearby {merchant_category} is offering 20% off and seeing double the traffic? This could be you.”
+   - E.g., “Did you know a nearby 'merchant_category' is offering 20% off and seeing double the traffic? This could be you.”
 
 5. CTA & Next Steps:
    - Invite them to sign up or schedule a conversation.
