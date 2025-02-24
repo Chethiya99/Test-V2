@@ -99,9 +99,9 @@ Body: <email_body>
 Include a professional closing, e.g.:
 
 Best regards,
-{Sumit Uttamchandani}
-{Marketing Manager}, Pulse iD
-{sumit@pulseid.com} }
+Sumit Uttamchandani
+Marketing Manager, Pulse iD
+sumit@pulseid.com
 
 Ensure the email flows naturally and doesn’t exceed ~150 words total. 
 No part of the email should be cut off prematurely. 
