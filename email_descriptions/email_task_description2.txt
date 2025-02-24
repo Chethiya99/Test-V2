@@ -81,17 +81,17 @@ Focus on short real-world results or quotes if desired (e.g., “Merchants see u
 SECTION 7: OUTPUT FORMAT
 ----------------------------------------------------
 Insert the placeholders below where relevant to personalize your message:
-  {{merchant_name}}
-  {{merchant_email}}
-  {{merchant_category}}
-  {{merchant_subcategory}}
-  {{merchant_location}}
-  {{merchant_rating}}
-  {{market_average_rating}}
-  {{your_name}}
-  {{your_position}}
-  {{your_email}}
-  {{your_phone}}
+  {merchant_name}
+  {merchant_email}
+  {merchant_category}
+  {merchant_subcategory}
+  {merchant_location}
+  {merchant_rating}
+  {market_average_rating}
+  {your_name}
+  {your_position}
+  {your_email}
+  {your_phone}
 
 The final email MUST follow this template exactly:
 
