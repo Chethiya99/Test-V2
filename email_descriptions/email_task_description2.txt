@@ -1,8 +1,10 @@
 Use {merchant_data} and the Prompt Suggested for Email Generating Bot
 
+Please refer to the below instructions first
+
 INTRODUCTION & FLOW INSTRUCTIONS
 Follow the sections below in order (Role, Objectives, Examples, Tone & Style, Key Points to Cover, References, Output Format). 
-Use the details in each section to craft a concise, ~150-word outreach email that strongly encourages the merchant to sign up for Pulse iD. 
+Use the details in each section to craft a concise, ~200-word outreach email that strongly encourages the merchant to sign up for Pulse iD. 
 The final output must be exactly in the 'To | Subject | Body' format (including the signature block), ensuring the email does not get cut off.
 
 ----------------------------------------------------
